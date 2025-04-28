@@ -38,8 +38,6 @@ class dotter:
         self.dotter_thread = threading.Thread(target=self.dot)
         self.dotter_thread.start()
 
-
-
     def __exit__(self,*args) -> None:
         self.running = False
         if self.dotter_thread is not None:
@@ -50,7 +48,6 @@ class dotter:
 
 if __name__ == "__main__":
     from time import sleep
-
 
     with dotter():
         sleep(10)

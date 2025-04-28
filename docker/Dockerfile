@@ -59,6 +59,35 @@ RUN echo 'eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/amro.
 RUN mkdir /root/project
 RUN update-ca-certificates
 
+RUN echo """
+
+#############################
+歡迎來到 Ouyang 的自訂 Docker 環境！以下是已安裝的一些有用套件：
+
+1. **Neovim**
+   - Ouyang自訂 Neovim 配置
+   - 使用命令：`nvim .`
+
+2. **fzf**
+   - 快速命令模糊搜尋器
+     - 使用 CTRL + r 進行命令搜尋
+     - 使用 CTRL + t 進行路徑搜尋
+
+3. **Ouyang的 oh-my-posh 風格**
+
+4. **zellij**
+   - 使用命令：`zellij -s name` 來啟動終端多工器
+   - 使用命令：`zellij a name` 來回到終端多工器
+
+5. **zoxide**
+   - 使用命令：`z /path` 直接切換到指定路徑
+   - 使用命令：`zi` 進行互動式選擇
+
+#############################
+
+""" > /etc/motd
+
+
 # 創建 SSH 服務的必要目錄
 RUN mkdir /var/run/sshd
 # 設置 root 密碼（請根據需要更改密碼）
