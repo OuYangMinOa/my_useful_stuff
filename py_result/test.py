@@ -6,21 +6,21 @@ def devide(a: int, b: int) -> Result[int, str]:
     return Ok(a // b)
 
 def main() -> None:
-    result = devide(10, 0)
-    if result.is_ok():
-        print(f"Result: {result.unwrap()}")
-    else:
-        print(f"Error: {result.unwrap_err()}")
-    
-    result = (devide(10, 2).
-                map(lambda x: x * 2).
-                map_err(lambda x: f"Error: {x}").
-                and_then(lambda x: x + 1).
-                unwrap()
-            )
-    print(result)
-    
-    
+    result : Result[int, str] = devide(10, 0)
+    match result:
+        case Ok():
+            print(f"Result: {result.value}")
+        case Err():
+            print(f"Error: {result.error}")
+            
+    result : Result[int, str] = devide(10, 2)
+    match result:
+        case Ok():
+            print(f"Result: {result.value}")
+        case Err():
+            print(f"Error: {result.value}")
 
+
+        
 if __name__ == "__main__":
     main()
