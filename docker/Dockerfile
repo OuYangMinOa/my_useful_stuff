@@ -31,6 +31,9 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 # Install Zellij
 RUN /root/.cargo/bin/cargo install --locked zellij
 
+# Install vim
+RUN wget https://raw.githubusercontent.com/OuYangMinOa/my_vimrc/main/.vimrc --output-document ~/.vimrc
+
 # Install nvim
 RUN apt install -y software-properties-common
 RUN add-apt-repository -y ppa:neovim-ppa/unstable
