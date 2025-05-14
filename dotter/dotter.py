@@ -11,7 +11,7 @@ class dotter:
     # A dotter while I'm thinking
 
     def __init__(self, message: str = "Thinking", delay: float = 0.5,cycle:list[int]=["", ".", ". .", ". . ."]) -> None:
-        cycle = ["\\","|","/"]
+        cycle = ["\\","|","/", "-"]
         self.spinner = itertools.cycle(cycle)
         self.delay = delay
         self.message = message

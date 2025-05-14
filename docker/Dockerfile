@@ -58,18 +58,18 @@ RUN curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Add command to .bashrc
 RUN echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
-RUN echo 'eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/amro.omp.json)"' >> ~/.bashrc
+RUN echo 'eval "$(oh-my-posh init bash --config ~/.config/nvim/myarmo.json)"' >> ~/.bashrc
 RUN mkdir /root/project
 RUN update-ca-certificates
 
 RUN echo """
 
-#############################
+##########################################################
 歡迎來到 Ouyang 的自訂 Docker 環境！以下是已安裝的一些有用套件：
 
 1. **Neovim**
-   - Ouyang自訂 Neovim 配置
-   - 使用命令：`nvim .`
+   - Ouyang 自訂 Neovim 配置 (https://github.com/OuYangMinOa/neovim_setup)
+   - 使用命令：`nvim .` 
 
 2. **fzf**
    - 快速命令模糊搜尋器
@@ -86,10 +86,9 @@ RUN echo """
    - 使用命令：`z /path` 直接切換到指定路徑
    - 使用命令：`zi` 進行互動式選擇
 
-#############################
+##########################################################
 
 """ > /etc/motd
-
 
 # 創建 SSH 服務的必要目錄
 RUN mkdir /var/run/sshd
