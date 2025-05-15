@@ -18,6 +18,7 @@ RUN curl -o- https://raw.githubusercontent.com/OuYangMinOa/my_useful_stuff/main/
 RUN echo "alias vi='nvim' " >> ~/.bashrc
 RUN echo "alias vim='nvim' " >> ~/.bashrc
 
+
 # 創建 SSH 服務的必要目錄
 RUN mkdir -p /var/run/sshd
 
