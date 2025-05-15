@@ -1,3 +1,4 @@
+git config --global http.sslbackend schannel
 curl https://sh.rustup.rs -sSf | bash -s -- -y
 echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
 PATH="/root/.cargo/bin:${PATH}"
