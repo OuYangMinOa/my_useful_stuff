@@ -11,6 +11,9 @@ mkdir ~/.config
 cd ~/.config
 git clone https://github.com/OuYangMinOa/neovim_setup ~/.config/nvim
 rm ~/.config/nvim/lua/plugins/fold.lua
+rm ~/.config/nvim/readme.md
+rm -rf  ~/.config/nvim/.git
+rm -rf  ~/.config/nvim/images
 source ~/.bashrc
 nvim --headless +qall
 # git config --global http.sslbackend gnutls schannel

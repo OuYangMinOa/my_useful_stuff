@@ -1,0 +1,30 @@
+# 使用 Ubuntu 22.04 作為基礎映像
+FROM ubuntu:22.04
+
+# 設置環境變量以避免交互式提示
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 更新包列表並安裝 OpenSSH 服務
+RUN apt-get -y update 
+RUN apt-get install -y openssh-server apt-transport-https build-essential
+RUN apt-get install -y ca-certificates git curl
+
+RUN curl -o- https://raw.githubusercontent.com/OuYangMinOa/my_useful_stuff/main/auto_install/install_fzf.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/OuYangMinOa/my_useful_stuff/main/auto_install/install_oh_my_posh.sh | bash 
+RUN curl -o- https://raw.githubusercontent.com/OuYangMinOa/my_useful_stuff/main/auto_install/install_ou_nvim.sh | bash 
+RUN curl -o- https://raw.githubusercontent.com/OuYangMinOa/my_useful_stuff/main/auto_install/install_zellij.sh | bash 
+
+#使用 nvim
+RUN echo "alias vi='nvim' " >> ~/.bashrc
+
+# 創建 SSH 服務的必要目錄
+RUN mkdir /var/run/sshd
+# 設置 root 密碼（請根據需要更改密碼）
+RUN echo 'root:root' | chpasswd
+# 允許 root 用戶通過 SSH 登錄
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+# 開放 SSH 端口
+EXPOSE 22
+
+# 啟動 SSH 服務
+CMD ["/usr/sbin/sshd", "-D"]
