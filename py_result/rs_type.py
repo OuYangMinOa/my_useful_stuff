@@ -64,18 +64,12 @@ class Result(Generic[T, E]):
     def __str__(self) -> str:
         if self.is_ok():
             return f"Ok({self.value})"
-        return f"Err({self.error})"
+        return f"Err(\"{self.error}\")"
 
 class Ok(Result, Generic[T, E]):
     def __init__(self, value: T) -> None:
         self.value = value
 
-    def __repr__(self) -> str:
-        return f"Ok({self.value})"
-
 class Err(Result, Generic[T, E]):
     def __init__(self, error: E) -> None:
         self.error = error
-
-    def __repr__(self) -> str:
-        return f"Err({self.error})"

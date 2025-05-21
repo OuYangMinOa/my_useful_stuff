@@ -7,6 +7,7 @@ def devide(a: int, b: int) -> Result[int, str]:
 
 def main() -> None:
     result : Result[int, str] = devide(10, 0)
+    print(result)
     match result:
         case Ok(value):
             print(f"Result: {value}")
@@ -14,6 +15,7 @@ def main() -> None:
             print(f"Error: {value}")
             
     result : Result[int, str] = devide(10, 2)
+    print(result)
     match result:
         case Ok(value):
             print(f"Result: {value}")
