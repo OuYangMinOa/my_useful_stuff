@@ -8,17 +8,17 @@ def devide(a: int, b: int) -> Result[int, str]:
 def main() -> None:
     result : Result[int, str] = devide(10, 0)
     match result:
-        case Ok():
-            print(f"Result: {result.value}")
-        case Err():
-            print(f"Error: {result.error}")
+        case Ok(value):
+            print(f"Result: {value}")
+        case Err(value):
+            print(f"Error: {value}")
             
     result : Result[int, str] = devide(10, 2)
     match result:
-        case Ok():
-            print(f"Result: {result.value}")
-        case Err():
-            print(f"Error: {result.value}")
+        case Ok(value):
+            print(f"Result: {value}")
+        case Err(value):
+            print(f"Error: {value}")
 
 
         

@@ -7,6 +7,7 @@ E = TypeVar('E')
 class Result(Generic[T, E]):
     __value : T = None
     __error : E = None
+    __match_args__ = ('value',)
 
     @property
     def value(self) -> Union[T, E]:
