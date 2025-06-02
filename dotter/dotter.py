@@ -5,13 +5,29 @@ import sys
 import threading
 import time
 
+piano = ['▉▁▁▁▁▁', '▉▉▂▁▁▁', '▉▉▉▃▁▁', '▉▉▉▉▅▁', 
+         '▉▉▉▉▉▇', '▉▉▉▉▉▉', '▉▉▉▉▇▅', '▉▉▉▆▃▁', 
+         '▉▉▅▃▁▁', '▉▇▃▁▁▁', '▇▃▁▁▁▁', '▃▁▁▁▁▁', 
+         '▁▁▁▁▁▁', '▁▁▁▁▁▉', '▁▁▁▁▃▉', '▁▁▁▃▅▉', 
+         
+         '▁▁▃▅▇▉', '▁▃▅▇▉▉', '▃▅▉▉▉▉', '▅▉▉▉▉▉',
+         '▇▉▉▉▉▉', '▉▉▉▉▉▉', '▇▉▉▉▉▉', '▅▉▉▉▉▉', 
+         '▃▅▉▉▉▉', '▁▃▅▉▉▉', '▁▁▃▅▉▉', '▁▁▁▃▅▉',
+         '▁▁▁▁▃▅', '▁▁▁▁▁▃', '▁▁▁▁▁▁', '▁▁▁▁▁▁', 
+         '▁▁▃▁▁▁', '▁▃▅▃▁▁', '▁▅▉▅▁▁', '▃▉▉▉▃▁', 
+         '▅▉▁▉▅▃', '▇▃▁▃▇▅', '▉▁▁▁▉▇', '▉▅▃▁▃▅', 
+         '▇▉▅▃▅▇', '▅▉▇▅▇▉', '▃▇▉▇▉▅', '▁▅▇▉▇▃', 
+         '▁▃▅▇▅▁', '▁▁▃▅▃▁', '▁▁▁▃▁▁', '▁▁▁▁▁▁',
+        ]
+
+slash = ["\\","|","/", "-"]
 
 class dotter:
 
     # A dotter while I'm thinking
 
     def __init__(self, message: str = "Thinking", delay: float = 0.5,cycle:list[int]=["", ".", ". .", ". . ."]) -> None:
-        cycle = ["\\","|","/", "-"]
+        
         self.spinner = itertools.cycle(cycle)
         self.delay = delay
         self.message = message
@@ -49,5 +65,5 @@ class dotter:
 if __name__ == "__main__":
     from time import sleep
 
-    with dotter():
-        sleep(10)
+    with dotter(cycle = piano, message="Loading", delay=0.1) as d:
+        sleep(20)
