@@ -1,5 +1,5 @@
 apt-get update -y
-apt-get install -y git sudo curl unzip gcc ripgrep ca-certificates
+apt-get install -y git sudo curl unzip gcc ripgrep ca-certificates fd-find
 git config --global http.sslbackend gnutls schannel
 curl -LO https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.tar.gz
 rm -rf /opt/nvim
